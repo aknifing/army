@@ -1,0 +1,39 @@
+logging:
+  system: ${spring.application.name}
+  path: d:/log/${logging.system}
+  level: debug
+server:
+  port: 10086
+#屏蔽自动配置类
+spring:
+  application:
+    name: army
+#重启排除静态文件
+  devtools: 
+    restart:
+      enabled: true
+      exclude: static/**,public/**
+  mail:
+    host: smtp.163.com
+    port: 25
+    username: eclipse1225@163.com
+    password: maosihen2ni
+    properties:
+      smtp:
+        auth: true
+        timeout: 25000
+        starttls:
+          enable: true
+          required: true
+jmx:
+  rmi:
+    host: localhost
+    port: ${random.int[10000,19999]}
+#restTemplate
+restTemplate: 
+  readTimeout: 5000
+  connectTimeout: 15000
+#######################################################
+management:
+  security: 
+    enabled: false
